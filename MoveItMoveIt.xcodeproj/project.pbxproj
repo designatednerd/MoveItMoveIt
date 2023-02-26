@@ -13,6 +13,7 @@
 		9B0E49EB29ABF73E00AABB09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B0E49EA29ABF73E00AABB09 /* Preview Assets.xcassets */; };
 		9B0E49F529ABF73F00AABB09 /* MoveItMoveItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E49F429ABF73F00AABB09 /* MoveItMoveItTests.swift */; };
 		9B0E49FF29ABF73F00AABB09 /* MoveItMoveItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E49FE29ABF73F00AABB09 /* MoveItMoveItUITests.swift */; };
+		9B0E4A1129ABF9A500AABB09 /* ComponentLibrary in Resources */ = {isa = PBXBuildFile; fileRef = 9B0E4A1029ABF9A500AABB09 /* ComponentLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		9B0E49F429ABF73F00AABB09 /* MoveItMoveItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveItMoveItTests.swift; sourceTree = "<group>"; };
 		9B0E49FA29ABF73F00AABB09 /* MoveItMoveItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoveItMoveItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0E49FE29ABF73F00AABB09 /* MoveItMoveItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveItMoveItUITests.swift; sourceTree = "<group>"; };
+		9B0E4A1029ABF9A500AABB09 /* ComponentLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ComponentLibrary; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				9B0E49E229ABF73D00AABB09 /* MoveItMoveIt */,
+				9B0E4A0F29ABF9A500AABB09 /* Packages */,
 				9B0E49F329ABF73F00AABB09 /* MoveItMoveItTests */,
 				9B0E49FD29ABF73F00AABB09 /* MoveItMoveItUITests */,
 				9B0E49E129ABF73D00AABB09 /* Products */,
@@ -122,6 +125,14 @@
 				9B0E49FE29ABF73F00AABB09 /* MoveItMoveItUITests.swift */,
 			);
 			path = MoveItMoveItUITests;
+			sourceTree = "<group>";
+		};
+		9B0E4A0F29ABF9A500AABB09 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				9B0E4A1029ABF9A500AABB09 /* ComponentLibrary */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 			files = (
 				9B0E49EB29ABF73E00AABB09 /* Preview Assets.xcassets in Resources */,
 				9B0E49E829ABF73E00AABB09 /* Assets.xcassets in Resources */,
+				9B0E4A1129ABF9A500AABB09 /* ComponentLibrary in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
