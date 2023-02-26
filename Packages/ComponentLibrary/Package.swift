@@ -5,6 +5,13 @@ import PackageDescription
 
 let package = Package(
     name: "ComponentLibrary",
+    platforms: [
+        // 2022-2023 newest releases
+        .macOS(.v13),
+        .iOS(.v16),
+        .tvOS(.v16),
+        .watchOS(.v9)
+    ],
     products: [
         .library(
             name: "ComponentLibrary",

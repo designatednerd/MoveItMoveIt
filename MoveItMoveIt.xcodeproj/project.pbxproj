@@ -14,6 +14,7 @@
 		9B0E49F529ABF73F00AABB09 /* MoveItMoveItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E49F429ABF73F00AABB09 /* MoveItMoveItTests.swift */; };
 		9B0E49FF29ABF73F00AABB09 /* MoveItMoveItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E49FE29ABF73F00AABB09 /* MoveItMoveItUITests.swift */; };
 		9B0E4A1129ABF9A500AABB09 /* ComponentLibrary in Resources */ = {isa = PBXBuildFile; fileRef = 9B0E4A1029ABF9A500AABB09 /* ComponentLibrary */; };
+		9B0E4A1429ABFF0E00AABB09 /* ComponentLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 9B0E4A1329ABFF0E00AABB09 /* ComponentLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B0E4A1429ABFF0E00AABB09 /* ComponentLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +81,7 @@
 				9B0E49F329ABF73F00AABB09 /* MoveItMoveItTests */,
 				9B0E49FD29ABF73F00AABB09 /* MoveItMoveItUITests */,
 				9B0E49E129ABF73D00AABB09 /* Products */,
+				9B0E4A1229ABFF0E00AABB09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +138,13 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
+		9B0E4A1229ABFF0E00AABB09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,6 +161,9 @@
 			dependencies = (
 			);
 			name = MoveItMoveIt;
+			packageProductDependencies = (
+				9B0E4A1329ABFF0E00AABB09 /* ComponentLibrary */,
+			);
 			productName = MoveItMoveIt;
 			productReference = 9B0E49E029ABF73D00AABB09 /* MoveItMoveIt.app */;
 			productType = "com.apple.product-type.application";
@@ -591,6 +604,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9B0E4A1329ABFF0E00AABB09 /* ComponentLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ComponentLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9B0E49D829ABF73D00AABB09 /* Project object */;
 }

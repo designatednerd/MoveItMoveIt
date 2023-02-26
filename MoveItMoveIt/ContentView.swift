@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import ComponentLibrary
 
 struct ContentView: View {
     var body: some View {
         VStack {
             Image(systemName: "box.truck")
                 .imageScale(.large)
-                .foregroundColor(.accentColor)
+                .foregroundColor(.purple500)
             Text("I like to move it, move it")
         }
         .padding()
