@@ -10,6 +10,7 @@ import SwiftUI
 import ComponentLibrary
 
 struct LoginView: View {
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var vm: LoginViewModel = LoginViewModel()
     
     var body: some View {
@@ -44,6 +45,14 @@ struct LoginView: View {
             Spacer()
             Spacer()
         }
+        .navigationBarBackButtonHidden(true)
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackButton {
+                    self.dismiss()
+                }
+            }
+        })
         .padding(20)
     }
     
@@ -53,7 +62,9 @@ struct LoginView: View {
 #if DEBUG
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        NavigationStack {
+            LoginView()
+        }
     }
 }
 #endif
