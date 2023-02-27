@@ -121,14 +121,12 @@ public struct SecondaryButton: View {
                 .if(self.fullWidth) { view in
                     view.frame(maxWidth: .infinity)
                 }
-                .roundedCornerBackground(.clear,
-                                         radius: 10,
-                                         borderInfo: self.borderInfo)
+                .roundedBorder(self.borderInfo, radius: 10)
         }
     }
     
     private var borderInfo: BorderInfo {
-        BorderInfo(color: self.primaryColor, width: 1)
+        BorderInfo(color: self.primaryColor, width: 2)
     }
     
     private var primaryColor: Color {
@@ -221,7 +219,6 @@ struct PrimaryButton_Previews: PreviewProvider {
 struct SecondaryButton_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            Title2Text("Secondary")
             SecondaryButton(title: "Standard Button", action: {})
             SecondaryButton(title: "Standard Full Width Button",
                             fullWidth: true,
