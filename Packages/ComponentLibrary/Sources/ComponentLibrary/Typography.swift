@@ -26,7 +26,7 @@ extension Font {
     
     static func helveticaNeueRegular(_ size: CGFloat,
                                      relativeTo textStyle: TextStyle) -> Font {
-        Font.custom("HelveticaNeue-Light",
+        Font.custom("HelveticaNeue",
                     size: size,
                     relativeTo: textStyle)
     }
