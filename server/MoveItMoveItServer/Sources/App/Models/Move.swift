@@ -8,6 +8,7 @@
 import Fluent
 import Vapor 
 
+/// A single move.
 final class Move: Model, Content {
     static var schema = "moves"
     
@@ -24,9 +25,11 @@ final class Move: Model, Content {
     @Parent(key: DatabaseKey.userID.fieldKey)
     var user: User
     
+    /// The date that the user plans to begin their move.
     @Field(key: DatabaseKey.startDate.fieldKey)
     var startDate: Date
     
+    /// [optional] The date the user plans to complete their move
     @OptionalField(key: DatabaseKey.endDate.fieldKey)
     var endDate: Date?
     

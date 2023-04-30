@@ -41,15 +41,17 @@ final class User: Model, Content {
         self.id = id
         self.email = email
         self.name = name
-        self.hashedPassword = try Bcrypt.hash(password) // not passing a salt will use a randomly generated salt
+        
+        // not passing a salt will use a randomly generated salt which gets stored with the password, and then you must use `Bcrypt.verify` to check the stored value is correct. 
+        self.hashedPassword = try Bcrypt.hash(password)
     }
     
     func generateToken() throws -> UserToken {
-            try UserToken(
-                value: [UInt8].random(count: 16).base64,
-                userID: self.requireID()
-            )
-        }
+        try UserToken(
+            value: [UInt8].random(count: 16).base64,
+            userID: self.requireID()
+        )
+    }
 }
 
 extension User: ModelAuthenticatable {

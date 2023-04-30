@@ -17,7 +17,7 @@ struct MoveIDArguments: Codable {
 struct CreateMoveArguments: Codable {
     let userID: UUID
     let startDate: Date
-    let endDate: Date? 
+    let endDate: Date?
 }
 
 class MoveResolver {
@@ -28,7 +28,6 @@ class MoveResolver {
     
     // These are necessary because `Field` can't resolve
     // these methods properly if they're on a different object
-    
     
     /// Creates a new user if one with that email doesn't already exist
     /// - Parameters:
@@ -60,7 +59,7 @@ class MoveResolver {
     func allMoves(request: Request,
                   arguments: UserIDArgument) throws -> EventLoopFuture<[Move]> {
         return Move.query(on: request.db)
-            .filter(\Move.user.$id == arguments.userID)
+            .filter(\Move.$user.$id == arguments.userID)
             .sort(\.$startDate)
             .all()
     }
