@@ -23,13 +23,23 @@ public func configure(_ app: Application) throws {
     app.migrations.add(Move.Migration())
     
     try app.autoMigrate().wait()
+    
+    let corsConfiguration = CORSMiddleware.Configuration(
+        allowedOrigin: .all,
+        allowedMethods: [.GET, .POST, .PUT, .OPTIONS, .DELETE, .PATCH],
+        allowedHeaders: [.accept, .authorization, .contentType, .origin, .xRequestedWith, .userAgent, .accessControlAllowOrigin]
+    )
+    let cors = CORSMiddleware(configuration: corsConfiguration)
+    app.middleware.use(cors)
+    app.middleware.use(ApolloStudioMiddleware())
+
 
     // Register the schema and its resolver.
     app.register(graphQLSchema: movingSchema,
                  withResolver: MoveResolver())
 
 
-    let tokenProtected = app.grouped(UserToken.authenticator())
+//    let tokenProtected = app.grouped(UserToken.authenticator())
 
 
 
