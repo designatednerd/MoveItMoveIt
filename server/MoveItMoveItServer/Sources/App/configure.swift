@@ -25,14 +25,17 @@ public func configure(_ app: Application) throws {
     try app.autoMigrate().wait()
     
     let corsConfiguration = CORSMiddleware.Configuration(
-        allowedOrigin: .all,
-        allowedMethods: [.GET, .POST, .PUT, .OPTIONS, .DELETE, .PATCH],
-        allowedHeaders: [.accept, .authorization, .contentType, .origin, .xRequestedWith, .userAgent, .accessControlAllowOrigin]
+        allowedOrigin: .custom("https://studio.apollographql.com"),
+        allowedMethods: [.POST],
+        allowedHeaders: [
+            .accept,
+            .contentType,
+            .accessControlAllowOrigin,
+            .origin
+        ]
     )
     let cors = CORSMiddleware(configuration: corsConfiguration)
     app.middleware.use(cors)
-    app.middleware.use(ApolloStudioMiddleware())
-
 
     // Register the schema and its resolver.
     app.register(graphQLSchema: movingSchema,
