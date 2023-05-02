@@ -20,7 +20,20 @@ struct CreateMoveArguments: Codable {
     let endDate: Date?
 }
 
-class GraphQLResolver {
+protocol MoveResolver {
+    
+    // MARK: - Moves
+    
+    func createMove(request: Request,
+                    arguments: CreateMoveArguments) -> EventLoopFuture<Move>
+    
+    func allMoves(request: Request,
+                  arguments: UserIDArgument) throws -> EventLoopFuture<[Move]>
+    
+    func move(request: Request,
+              arguments: MoveIDArguments) throws -> EventLoopFuture<Move>
+}
+extension MoveResolver {
     
     // MARK: - Moves
     
