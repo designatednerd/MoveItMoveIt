@@ -32,7 +32,15 @@ struct UserIDArgument: Codable {
     let userID: UUID
 }
 
-extension GraphQLResolver {
+protocol UserResolver {
+    func createUser(request: Request,
+                    arguments: UserCreateArguments) throws -> EventLoopFuture<User>
+    
+    func logInUser(request: Request,
+                   arguments: LoginArguments) throws -> EventLoopFuture<User>
+}
+
+extension UserResolver {
     
     func createUser(request: Request,
                     arguments: UserCreateArguments) throws -> EventLoopFuture<User> {
