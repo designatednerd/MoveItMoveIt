@@ -8,7 +8,7 @@
 import Graphiti
 import Vapor
 
-let movingSchema = try! Schema<MoveResolver, Request> {
+let movingSchema = try! Schema<GraphQLResolver, Request> {
     Scalar(UUID.self)
     DateScalar(formatter: ISO8601DateFormatter())
 
@@ -29,27 +29,27 @@ let movingSchema = try! Schema<MoveResolver, Request> {
     }
     
     Query {
-        Field("allMoves", at: MoveResolver.allMoves) {
+        Field("allMoves", at: GraphQLResolver.allMoves) {
             Argument("userID", at: \.userID)
                 .description("The identifier of the user to pull a list of moves for")
         }
         .description("All the moves for the given user")
-        Field("move", at: MoveResolver.move) {
+        Field("move", at: GraphQLResolver.move) {
             Argument("moveID", at: \.moveID)
         }
     }
     
     Mutation {
-        Field("login", at: MoveResolver.logInUser) {
+        Field("login", at: GraphQLResolver.logInUser) {
             Argument("email", at: \.email)
             Argument("password", at: \.password)
         }
-        Field("createUser", at: MoveResolver.createUser) {
+        Field("createUser", at: GraphQLResolver.createUser) {
             Argument("name", at: \.name)
             Argument("email", at: \.email)
             Argument("password", at: \.password)
         }
-        Field("createMove", at: MoveResolver.createMove) {
+        Field("createMove", at: GraphQLResolver.createMove) {
             Argument("userID", at: \.userID)
             Argument("startDate", at: \.startDate)
             Argument("endDate", at: \.endDate) 

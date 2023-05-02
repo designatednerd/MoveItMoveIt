@@ -1,6 +1,5 @@
 //
-//  UserResolver.swift
-//  App
+//  GraphQLResolver+User.swift//  App
 //
 //  Created by Ellen Shapiro on 4/9/23.
 //
@@ -33,7 +32,7 @@ struct UserIDArgument: Codable {
     let userID: UUID
 }
 
-class UserResolver {
+extension GraphQLResolver {
     
     func createUser(request: Request,
                     arguments: UserCreateArguments) throws -> EventLoopFuture<User> {

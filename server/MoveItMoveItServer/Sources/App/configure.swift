@@ -24,6 +24,7 @@ public func configure(_ app: Application) throws {
     
     try app.autoMigrate().wait()
     
+    // Enable Apollo Studio to access the API using CORS
     let corsConfiguration = CORSMiddleware.Configuration(
         allowedOrigin: .custom("https://studio.apollographql.com"),
         allowedMethods: [.POST],
@@ -39,14 +40,9 @@ public func configure(_ app: Application) throws {
 
     // Register the schema and its resolver.
     app.register(graphQLSchema: movingSchema,
-                 withResolver: MoveResolver())
+                 withResolver: GraphQLResolver())
 
-
-//    let tokenProtected = app.grouped(UserToken.authenticator())
-
-
-
-    // Enable GraphiQL web page to send queries to the GraphQL endpoint
+    // Enable GraphiQL web page for built-in goodness
     if !app.environment.isRelease {
         app.enableGraphiQL()
     }

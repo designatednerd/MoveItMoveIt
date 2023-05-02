@@ -1,5 +1,5 @@
 //
-//  MoveResolver.swift
+//  GraphQLResolver+Moves.swift
 //  App
 //
 //  Created by Ellen Shapiro on 4/9/23.
@@ -20,31 +20,7 @@ struct CreateMoveArguments: Codable {
     let endDate: Date?
 }
 
-class MoveResolver {
-    
-    private let userResolver = UserResolver()
-    
-    // MARK: - Pass-Through Methods
-    
-    // These are necessary because `Field` can't resolve
-    // these methods properly if they're on a different object
-    
-    /// Creates a new user if one with that email doesn't already exist
-    /// - Parameters:
-    ///   - request: The request to use
-    ///   - arguments: The ``UserArguments`` to use
-    /// - Returns: The created user. 
-    func createUser(request: Request,
-                    arguments: UserCreateArguments) throws -> EventLoopFuture<User> {
-       try userResolver.createUser(request: request,
-                                arguments: arguments)
-    }
-    
-    func logInUser(request: Request,
-                   arguments: LoginArguments) throws -> EventLoopFuture<User> {
-        try userResolver.logInUser(request: request,
-                                   arguments: arguments)
-    }
+class GraphQLResolver {
     
     // MARK: - Moves
     
