@@ -56,10 +56,11 @@ public struct TextInput: View {
     
     public var body: some View {
         VStack(alignment: .leading) {
-            if !self.inputText.wrappedValue.isEmpty {
-                Caption1Text(self.fieldName)
-                    .foregroundColor(self.state().decorationColor)
-            }
+            Caption1Text(self.fieldName)
+                .foregroundColor(self.state().decorationColor)
+                .opacity(self.inputText.wrappedValue.isEmpty ? 0 : 1)
+                .animation(Animation.easeOut, value: self.inputText.wrappedValue.isEmpty)
+                
             ZStack(alignment: .trailing) {
                 if self.showText {
                     TextField(self.fieldName, text: self.inputText, onEditingChanged: { editing in
